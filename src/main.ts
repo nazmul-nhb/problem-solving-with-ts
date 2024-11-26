@@ -18,10 +18,9 @@ const logResult = () => {
 					result &&
 					result != null &&
 					typeof result !== "undefined" &&
-					Object.keys(result).length
+					JSON.stringify(result) !== "{}"
 				) {
 					console.log(`🟢 Showing Result from ${file}`);
-					// console.log(result);
 					console.log(result);
 					console.log("---------------------------");
 				} else {
