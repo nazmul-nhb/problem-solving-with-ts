@@ -14,4 +14,4 @@ const sumOfDigits = (number: number): number => {
 	return sum;
 };
 
-export default sumOfDigits(567);
+// export default sumOfDigits(567);

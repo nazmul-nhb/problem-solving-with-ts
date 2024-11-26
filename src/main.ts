@@ -12,9 +12,10 @@ const logResult = () => {
 	for (const file of files) {
 		import(`./${file}`)
 			.then((module) => {
+				
 				if (
 					typeof module === "object" &&
-					JSON.stringify(module) !== "{}"
+					JSON.stringify(module.default) !== "{}"
 				) {
 					console.log(`🟢 Showing Result from ${file}`);
 					console.log(module.default);

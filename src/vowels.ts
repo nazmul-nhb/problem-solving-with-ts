@@ -2,7 +2,7 @@ const countVowels = (str: string): number => {
 	let count = 0;
 
 	for (const letter of str.split("")) {
-		if ("aeiou".includes(letter)) {
+		if ("aeiou".includes(letter.toLowerCase())) {
 			count++;
 		}
 	}
@@ -10,4 +10,4 @@ const countVowels = (str: string): number => {
 	return count;
 };
 
-export default countVowels("mmm");
+// export default countVowels("mmm");
