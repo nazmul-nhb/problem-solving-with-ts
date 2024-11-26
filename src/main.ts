@@ -12,7 +12,6 @@ const logResult = () => {
 	for (const file of files) {
 		import(`./${file}`)
 			.then((module) => {
-				
 				if (
 					typeof module === "object" &&
 					JSON.stringify(module.default) !== "{}"
@@ -20,10 +19,11 @@ const logResult = () => {
 					console.log(`🟢 Showing Result from ${file}`);
 					console.log(module.default);
 					console.log("---------------------------");
-				} else {
-					console.warn(`🚫 No default export found in ${file}!`);
-					console.log("---------------------------");
 				}
+				// else {
+				// 	console.warn(`🚫 No default export found in ${file}!`);
+				// 	console.log("---------------------------");
+				// }
 			})
 			.catch((err) => {
 				if (err instanceof Error) {

@@ -12,4 +12,4 @@ const factorial = (number: number): number | never => {
 	return result;
 };
 
-export default factorial(5); // 120
+// export default factorial(5); // 120
