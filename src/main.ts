@@ -1,15 +1,7 @@
 import { readdirSync } from "fs";
 import { join } from "path";
 
-export const logResult = (func?: () => any): void => {
-	if (func) {
-		const result = func();
-		console.log(`🟢 Output: ${result}`);
-	}
-};
-
-// Dynamically load and execute all files in the src directory
-const loadModules = () => {
+const logResult = () => {
 	console.log("🟢 Program is Running...");
 
 	const srcDir = join(__dirname);
@@ -20,22 +12,33 @@ const loadModules = () => {
 	for (const file of files) {
 		import(`./${file}`)
 			.then((module) => {
-				if (module.default) {
+				const result = module.default;
+
+				if (
+					result &&
+					result != null &&
+					typeof result !== "undefined" &&
+					Object.keys(result).length
+				) {
 					console.log(`🟢 Showing Result from ${file}`);
-					logResult(() => module.default);
+					// console.log(result);
+					console.log(result);
 					console.log("---------------------------");
 				} else {
 					console.warn(`🚫 No default export found in ${file}!`);
+					console.log("---------------------------");
 				}
 			})
 			.catch((err) => {
 				if (err instanceof Error) {
 					console.error(`🛑 Error in ${file}:`, err.message);
+					console.log("---------------------------");
 				} else {
 					console.error(err);
+					console.log("---------------------------");
 				}
 			});
 	}
 };
 
-loadModules();
+logResult();
