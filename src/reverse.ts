@@ -15,4 +15,4 @@ const reverseString = (str: string): string => {
 	return reversed.join("");
 };
 
-export default reverseString("hello");
+// export default reverseString("hello");

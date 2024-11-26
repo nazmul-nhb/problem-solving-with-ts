@@ -14,8 +14,8 @@ const isPalindrome = (str: string): boolean => {
 	return true;
 };
 
-export default {
-	hello: isPalindrome("hello"),
-	madam: isPalindrome("madam"),
-	kaakkaak: isPalindrome("kaakkaak"),
-};
+// export default {
+// 	hello: isPalindrome("hello"),
+// 	madam: isPalindrome("madam"),
+// 	kaakkaak: isPalindrome("kaakkaak"),
+// };
