@@ -1,0 +1,27 @@
+{
+	"name": "problem-solving-with-ts",
+	"version": "1.0.0",
+	"description": "Problem Solving with TypeScript - from Basic to Advanced",
+	"main": "dist/index.js",
+	"scripts": {
+		"build": "rimraf dist && tsc",
+		"dev": "nodemon",
+		"start": "node dist/index.js"
+	},
+	"keywords": [
+		"problem",
+		"problem-solving",
+		"TypeScript"
+	],
+	"author": {
+		"name": "Nazmul Hassan",
+		"email": "nazmulnhb@gmail.com"
+	},
+	"license": "ISC",
+	"devDependencies": {
+		"nodemon": "^3.1.7",
+		"rimraf": "^6.0.1",
+		"ts-node": "^10.9.2",
+		"typescript": "^5.7.2"
+	}
+}
