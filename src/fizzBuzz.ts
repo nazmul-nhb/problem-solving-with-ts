@@ -16,5 +16,5 @@ const fizzBuzz = (number: number): string => {
 	return draft.join(", ");
 };
 
-export default fizzBuzz(10);
+// export default fizzBuzz(10);
 // 1, 2, Fizz, 4, Buzz, Fizz, 7, 8, Fizz, Buzz
