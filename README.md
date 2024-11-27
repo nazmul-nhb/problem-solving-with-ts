@@ -61,7 +61,7 @@ pnpm dev
 
 ### Example Problem File
 
-Create a `.ts` file in the `src` directory. For example:
+Create a `.ts` file in the `src` or any *subdirectories* in `src` directory. For example:
 
 ```typescript
 const sum = (a: number, b: number): number => a + b;
@@ -71,9 +71,11 @@ export default sum(3, 4); // This will log 7 to the console
 
 When you run the application, the result of this file (`7`) will be displayed in the terminal.
 
+For more info, explore the [src](src) folder in this project.
+
 ### Error Handling
 
-If any file fails to execute, the error message and stack trace will be logged to the terminal, helping you debug easily.
+If any file fails to execute, the error message will be logged to the terminal, helping you debug easily.
 
 ### Scripts
 
@@ -89,7 +91,7 @@ If any file fails to execute, the error message and stack trace will be logged t
 
 ---
 
-## Problems
+## Problems Solved So Far
 
 - [Questions from Ravi Bhai](src/ravi_bhai/questions.md)
 

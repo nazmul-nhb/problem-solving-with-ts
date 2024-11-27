@@ -24,9 +24,9 @@ const getAllFiles = (dirPath: string, arrayOfFiles: string[] = []) => {
 const logResult = () => {
 	console.log("🟢 Program is Running...");
 
-	const tsFiles = getAllFiles(__dirname);
+	const files = getAllFiles(__dirname);
 
-	for (const filePath of tsFiles) {
+	for (const filePath of files) {
 		const file = basename(filePath);
 		const folder = dirname(filePath).split(/[/\\]/).pop();
 		const displayPath = `${folder}/${file}`;
