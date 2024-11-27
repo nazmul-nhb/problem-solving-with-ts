@@ -7,7 +7,7 @@ A TypeScript-based project designed to enhance problem-solving skills, ranging f
 - **Dynamic File Scanning**: Recursively scans the `src` directory (or `dist` after build) to find all `.ts` and `.js` files, excluding `main.ts` or `main.js`.
 - **Automatic Execution**: Executes and logs the `export default` values from all valid files.
 - **Error Handling**: Catches and displays error message for invalid or faulty module imports.
-- **Streamlined Development**: Automatically rebuilds and runs with `nodemon` for efficient development cycles.
+- **Streamlined Development**: Hot-reloading with `nodemon` for efficient development cycles.
 
 ## Getting Started
 
@@ -15,7 +15,7 @@ A TypeScript-based project designed to enhance problem-solving skills, ranging f
 
 Ensure you have the following installed:
 
-- [Node.js](https://nodejs.org/) (v16 or later)
+- [Node.js](https://nodejs.org/) (v18 or later)
 - [TypeScript](https://www.typescriptlang.org/) (v5.0 or later)
 - [pnpm](https://pnpm.io/) package manager  
   *(If you prefer `npm` or `yarn`, delete the `pnpm-lock.yaml` file and use the respective commands.)*
