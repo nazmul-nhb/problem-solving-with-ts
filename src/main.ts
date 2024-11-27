@@ -1,33 +1,46 @@
-import { readdirSync } from "fs";
-import { join } from "path";
+import { readdirSync, statSync } from "fs";
+import { join, extname, basename, dirname } from "path";
+
+const getAllFiles = (dirPath: string, arrayOfFiles: string[] = []) => {
+	const files = readdirSync(dirPath);
+
+	files.forEach((file) => {
+		const filePath = join(dirPath, file);
+
+		if (statSync(filePath).isDirectory()) {
+			arrayOfFiles = getAllFiles(filePath, arrayOfFiles);
+		} else if (extname(file) === ".ts" && file !== "main.ts") {
+			arrayOfFiles.push(filePath);
+		}
+	});
+
+	return arrayOfFiles;
+};
 
 const logResult = () => {
 	console.log("🟢 Program is Running...");
 
-	const srcDir = join(__dirname);
-	const files = readdirSync(srcDir).filter(
-		(file) => file.endsWith(".ts") && file !== "main.ts"
-	);
+	const tsFiles = getAllFiles(__dirname);
 
-	for (const file of files) {
-		import(`./${file}`)
+	for (const filePath of tsFiles) {
+		const file = basename(filePath);
+		const folder = dirname(filePath).split(/[/\\]/).pop();
+		const displayPath = `${folder}/${file}`;
+
+		import(filePath)
 			.then((module) => {
 				if (
 					typeof module === "object" &&
 					JSON.stringify(module.default) !== "{}"
 				) {
-					console.log(`🟢 Showing Result from ${file}`);
+					console.log(`🟢 Showing Result from ${displayPath}`);
 					console.log(module.default);
 					console.log("---------------------------");
 				}
-				// else {
-				// 	console.warn(`🚫 No default export found in ${file}!`);
-				// 	console.log("---------------------------");
-				// }
 			})
 			.catch((err) => {
 				if (err instanceof Error) {
-					console.error(`🛑 Error in ${file}:`, err.message);
+					console.error(`🛑 Error in ${filePath}:`, err.message);
 					console.log("---------------------------");
 				} else {
 					console.error(err);

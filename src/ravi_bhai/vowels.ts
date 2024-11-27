@@ -10,4 +10,4 @@ const countVowels = (str: string): number => {
 	return count;
 };
 
-// export default countVowels("mmm");
+// export default countVowels("koskimomin");
