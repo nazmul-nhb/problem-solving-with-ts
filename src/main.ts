@@ -6,10 +6,14 @@ const getAllFiles = (dirPath: string, arrayOfFiles: string[] = []) => {
 
 	files.forEach((file) => {
 		const filePath = join(dirPath, file);
+		const fileConditions =
+			[".ts", ".js", ".mjs", ".cjs"].includes(extname(file)) &&
+			file !== "main.ts" &&
+			file !== "main.js";
 
 		if (statSync(filePath).isDirectory()) {
 			arrayOfFiles = getAllFiles(filePath, arrayOfFiles);
-		} else if (extname(file) === ".ts" && file !== "main.ts") {
+		} else if (fileConditions) {
 			arrayOfFiles.push(filePath);
 		}
 	});

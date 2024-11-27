@@ -34,6 +34,6 @@ const processMessage = (message: string): string => {
 		.join(", ");
 };
 
-export default processMessage(
-	"hello world coffee[25:00] meeting[09:15] chat[09:00]"
-);
+// export default processMessage(
+// 	"hello world coffee[25:00] meeting[09:15] chat[09:00]"
+// );

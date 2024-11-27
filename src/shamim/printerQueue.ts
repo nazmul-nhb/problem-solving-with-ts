@@ -1,6 +1,6 @@
 interface PrinterQueue {
 	id: string;
-	priority: number;
+	priority: 1 | 2 | 3 | 4 | 5;
 	size: number;
 }
 
