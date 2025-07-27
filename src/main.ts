@@ -1,5 +1,5 @@
-import { readdirSync, statSync } from "fs";
-import { join, extname, basename, dirname } from "path";
+import { readdirSync, statSync } from 'fs';
+import { basename, dirname, extname, join } from 'path';
 
 const getAllFiles = (dirPath: string, arrayOfFiles: string[] = []) => {
 	const files = readdirSync(dirPath);
@@ -7,9 +7,9 @@ const getAllFiles = (dirPath: string, arrayOfFiles: string[] = []) => {
 	files.forEach((file) => {
 		const filePath = join(dirPath, file);
 		const fileConditions =
-			[".ts", ".js", ".mjs", ".cjs"].includes(extname(file)) &&
-			file !== "main.ts" &&
-			file !== "main.js";
+			['.ts', '.js', '.mjs', '.cjs'].includes(extname(file)) &&
+			file !== 'main.ts' &&
+			file !== 'main.js';
 
 		if (statSync(filePath).isDirectory()) {
 			arrayOfFiles = getAllFiles(filePath, arrayOfFiles);
@@ -22,7 +22,7 @@ const getAllFiles = (dirPath: string, arrayOfFiles: string[] = []) => {
 };
 
 const logResult = () => {
-	console.log("🟢 Program is Running...");
+	console.log('🟢 Program is Running...');
 
 	const files = getAllFiles(__dirname);
 
@@ -33,22 +33,19 @@ const logResult = () => {
 
 		import(filePath)
 			.then((module) => {
-				if (
-					typeof module === "object" &&
-					JSON.stringify(module.default) !== "{}"
-				) {
+				if (module?.default && JSON.stringify(module.default) !== '{}') {
 					console.log(`🟢 Showing Result from ${displayPath}`);
 					console.log(module.default);
-					console.log("---------------------------");
+					console.log('---------------------------');
 				}
 			})
 			.catch((err) => {
 				if (err instanceof Error) {
 					console.error(`🛑 Error in ${filePath}:`, err.message);
-					console.log("---------------------------");
+					console.log('---------------------------');
 				} else {
 					console.error(err);
-					console.log("---------------------------");
+					console.log('---------------------------');
 				}
 			});
 	}
