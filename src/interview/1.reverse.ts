@@ -1,4 +1,4 @@
-export function reverseStringRaw(str: string): string {
+function reverseStringRaw(str: string): string {
 	if (!str || typeof str !== 'string') return '';
 
 	if (str.length === 1) return str;
