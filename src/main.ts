@@ -33,7 +33,7 @@ const logResult = () => {
 
 		import(filePath)
 			.then((module) => {
-				if (module?.default && JSON.stringify(module.default) !== '{}') {
+				if ('default' in module && JSON.stringify(module.default) !== '{}') {
 					console.log(`🟢 Showing Result from ${displayPath}`);
 					console.log(module.default);
 					console.log('---------------------------');

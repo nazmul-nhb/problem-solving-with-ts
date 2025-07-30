@@ -1,6 +1,6 @@
 {
   "name": "problem-solving-with-ts",
-  "version": "1.3.2",
+  "version": "1.3.3",
   "description": "Problem Solving with TypeScript - from Basic to Advanced",
   "main": "dist/main.js",
   "scripts": {
